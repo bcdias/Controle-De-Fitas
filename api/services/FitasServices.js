@@ -1,11 +1,25 @@
 const Services = require('./Services');
 const dataBase = require('../models');
 
-class FitasServices extends Services{
-    constructor(){
+class FitasServices extends Services {
+    constructor() {
         super('Fitas')
     }
-    /* Espaço dedicado para métodos específicos da classe FitasCrontroller */
+
+    async pegarTodosOsRegistros() {
+        return await dataBase[this.nomeDoModelo]
+            .scope('exclui')
+            .findAll()
+    }
+    async pegarUmRegistro(id){
+        return await dataBase[this.nomeDoModelo]
+            .scope('exclui')
+            .findOne({
+            where: {
+                id: Number(id)
+            }
+        })
+    }
 }
 
 module.exports = FitasServices

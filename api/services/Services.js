@@ -17,6 +17,20 @@ class Services{
     async criarRegistro(dados){
         return await dataBase[this.nomeDoModelo].create(dados)
     }
+    async atualizarRegistro(dados, id){
+        return await dataBase[this.nomeDoModelo].update(dados, {
+            where: {
+                id: Number(id)
+            }
+        })
+    }
+    async apagarRegistro(id){
+        return await dataBase[this.nomeDoModelo].destroy({
+            where: {
+                id: Number(id)
+            }
+        })
+    }
 
 }
 

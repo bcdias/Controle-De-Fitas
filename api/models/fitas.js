@@ -22,6 +22,13 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'Fitas',
+    scopes: {
+      exclui: {
+        attributes: { 
+          exclude: ['createdAt', 'updatedAt'] 
+        }
+      }
+    }
   });
   return Fitas;
 };
