@@ -1,7 +1,7 @@
 {
   "development": {
-    "username": "root",
-    "password": "@Magussk8",
+    "username": "usuario",
+    "password": "senha",
     "database": "calculadora_custos",
     "host": "127.0.0.1",
     "dialect": "mysql"
