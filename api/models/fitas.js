@@ -2,6 +2,7 @@
 const {
   Model
 } = require('sequelize');
+const { Sequelize } = require('.');
 module.exports = (sequelize, DataTypes) => {
   class Fitas extends Model {
     /**
@@ -14,11 +15,26 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Fitas.init({
-    material: DataTypes.STRING,
-    caracteristica: DataTypes.STRING,
-    numero: DataTypes.INTEGER,
-    metragem: DataTypes.INTEGER,
-    custo: DataTypes.INTEGER
+    material: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    caracteristica: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    numero: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    metragem: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    custo: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    }
   }, {
     sequelize,
     modelName: 'Fitas',

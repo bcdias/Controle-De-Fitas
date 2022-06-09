@@ -13,15 +13,16 @@ class FitasController{
     }
     static async pegarUmaFita(req, res){
         const {id} = req.params
-        try{
+        try {
             const umaFita = await fitasServices.pegarUmRegistro(id);
-            res.status(200).json(umaFita);
-        }catch(error){
-            res.status(401).json(error.message);
+            return res.status(200).json(umaFita);
+        } catch(error) {
+            return res.status(401).json(error.message);
         }
     }
     static async cadastrarFita(req, res){
         const dados = req.body;
+        
         try{
             const novaFitaCadastrada = await fitasServices.criarRegistro(dados);
             res.status(200).json(novaFitaCadastrada)
